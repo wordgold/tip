@@ -1,6 +1,4 @@
-define(function(require, exports, module) {
-	require('jquery');
-	require('<!--#echo var="static"-->css/mod/tip.css');
+(function() {
 	$.fn.tip = function(sta, con) {
 		var $t = $(this),
 			tip = $t.data("tip"),
@@ -29,4 +27,4 @@ define(function(require, exports, module) {
 			$(window).off("resize", s)
 		});
 	}
-});
+})()

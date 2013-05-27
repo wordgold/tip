@@ -4,16 +4,10 @@
 	<meta charset="utf-8"/>
 	<link href="https://rawgithub.com/wordgold/wg-s-code/master/css/reset.css" rel="stylesheet" type="text/css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<link href="emailpop.css" rel="stylesheet" type="text/css" />
-	<script src="emailpop.js"></script>
-	<title>Email 辅助输入插件</title>
+	<link href="tip.css" rel="stylesheet" type="text/css" />
+	<script src="tip.js"></script>
+	<title>Tip-页面提示插件</title>
 	<style type="text/css">
-		script{
-			display: block
-		}
-		body{
-			padding: 99px
-		}
 		input{
 			width: 240px;
 			margin: 9px;
@@ -21,33 +15,35 @@
 	</style>
 </head>
 <body>
-	<h1>Email 辅助输入插件</h1>
-	<p>一个辅助邮箱输入的js插件，只有3K大小。</p>
-	<p>在页面上输入Email 时动态提示常见后缀。</p>
+	<header>
+		<h1>Tip-页面提示插件</h1>
+		<p>一个添加页面提示的js插件，只有1K大小。</p>
+		<p>在HTML页面内的元素后添加各种小提示。</p>
+		<p><a href="http://git.yu123.me/tip" class="lightbtn">项目地址</a></p>
+	</header>
 	<h3>使用方法</h3>
-	<p>这是一个jquery插件，使用方法为： <b>$("Selectors").emailpop()</b> </p>
-	<p>由于表现和逻辑分离，使用前请自行导入 <b>emailpop.css</b> 文件内容</p>
+	<p>这是一个jquery插件，使用方法为： <b>$("Selectors").tip(optitons)</b> </p>
+	<p>由于表现和逻辑分离，使用前请自行导入 <b>tip.css</b> 文件内容</p>
 	<p>为防止IE6崩溃，请在页面加载完毕后执行</p>
-	<input type="email" id="email" placeholder="请输入您的电子邮箱地址">
+	<h3>Demo</h3>
+	<p><input type="text" id="input"></p>
 	<pre>
 		<script>
 			$(function(){
-				$("#email").emailpop();
+				var $i=$("#input").on({
+					focus:function(){
+						$i.tip(0,"请尝试点击下页面其他部分");
+					},
+					blur:function(){
+						$i.tip();
+					}
+				});
+				$i.tip(1,"请尝试输入一些内容");
 			})
 		</script>
 	</pre>
-	<p>多个输入框时</p>
-	<p id="email3">
-		<input type="email" placeholder="请输入您的电子邮箱地址">
-		<input type="email" placeholder="请输入您的电子邮箱地址">
-		<input type="email" placeholder="请输入您的电子邮箱地址">
-	</p>
-	<pre>
-		<script>
-			$(function(){
-				$("#email3 input").emailpop();
-			})
-		</script>
-	</pre>
+	<footer>
+		Created by <a href="http://yu123.me">Wordgold</a>
+	</footer>
 </body>
 </html>
